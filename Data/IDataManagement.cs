@@ -10,5 +10,6 @@ namespace Derrek_Application.Data
    public interface IDataManagement
    {
       Assignment StoreAssignment(Assignment dataObj);
+      List<Assignment> GetAllAssignment();
    }
 }

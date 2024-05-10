@@ -35,5 +35,15 @@ namespace Derrek_Application.Data
          }
          throw new NotImplementedException();
       }
+      public List<Assignment> GetAllAssignment()
+      {
+         List<Assignment> output;
+         using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.ConnectionStr("DerrekApp")))
+         {
+            output = connection.Query<Assignment>("dbo.spAssignment_GetAll").ToList();
+            return output;
+         }
+      throw new NotImplementedException();
+      }
    }
 }
