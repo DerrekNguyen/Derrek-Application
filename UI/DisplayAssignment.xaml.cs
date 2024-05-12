@@ -22,13 +22,36 @@ namespace Derrek_Application.UI
    public partial class DisplayAssignment : Window
    {
       List<Assignment> assignmentList = new List<Assignment>();
-      List<string> assignmentNames = new List<string>();
+      SortedDictionary<DateTime, List<string>> assignmentNames = new SortedDictionary<DateTime, List<string>>();  
+
+      /// <summary>
+      /// Prepares title of all the assignemts. Sorted and stored by date.
+      /// </summary>
       private void PrepareData()
       {
          assignmentList = GlobalConfig.sql.GetAllAssignment().OrderBy(o=>o.Deadline).ToList();
-         foreach (Assignment a in assignmentList)
+
+         List<string> tempTitle = new List<string>();
+         DateTime tempDate = DateTime.Now;
+
+         for (int i = 0; i < assignmentList.Count(); i++)
          {
-            // TODO
+            tempTitle.Add(assignmentList[i].Title);
+            tempDate = assignmentList[i].Deadline.Date;
+
+            if (i + 1 < assignmentList.Count())
+            {
+               if (assignmentList[i + 1].Deadline.Date != tempDate)
+               {
+                  assignmentNames.Add(tempDate, tempTitle);
+                  tempTitle = new List<string>();
+               }
+            } 
+
+            else
+            {
+               assignmentNames.Add(tempDate, tempTitle);
+            }
          }
       }
       public DisplayAssignment()
