@@ -31,7 +31,11 @@ namespace Derrek_Application.UI
       {
 
       }
-
+      /// <summary>
+      /// Create a new Assignment and store it in database
+      /// </summary>
+      /// <param name="sender"></param>
+      /// <param name="e"></param>
       private void submitButton_Click(object sender, EventArgs e)
       {
          if (ValidForm())
@@ -43,13 +47,11 @@ namespace Derrek_Application.UI
                deadline = DateTime.Today.AddDays(ValidDateAmount());
             }
 
-            Assignment t = new Assignment(titleTextBox.Text, descriptionTextBox.Text, noteTextBox.Text, doneCriteriaTextBox.Text, false, deadline);
+            Assignment t = new Assignment(titleTextBox.Text, descriptionTextBox.Text, false, deadline);
             GlobalConfig.sql.StoreAssignment(t);
 
             titleTextBox.Text = "";
             descriptionTextBox.Text = "";
-            noteTextBox.Text = "";
-            doneCriteriaTextBox.Text = "";
             deadlineDatePicker.Text = DateTime.Now.ToString();
             dateAmountTextBox.Text = "";
          }
@@ -61,7 +63,10 @@ namespace Derrek_Application.UI
 
       }
 
-      // Prerequisite: ValidForm() == true
+      /// <summary>
+      /// Returns amount of days to add to the creation day.
+      /// Prerequisite: ValidForm() == true
+      /// </summary>
       private int ValidDateAmount()
       {
          int result = 0;
@@ -73,11 +78,15 @@ namespace Derrek_Application.UI
          return result;
       }
 
+      /// <summary>
+      /// Checks if form has any invalid or missing any elements
+      /// </summary>
+      /// <returns></returns>
       private bool ValidForm()
       {
          if (titleTextBox.Text == "") return false;
          if (descriptionTextBox.Text == "") return false;
-         if (dateAmountTextBox.Text == "" && DateTime.Parse(deadlineDatePicker.Text) == DateTime.Now.Date) return false;
+         if (dateAmountTextBox.Text == "" && DateTime.Parse(deadlineDatePicker.Text) < DateTime.Now.Date) return false;
          else
          {
             int.TryParse(dateAmountTextBox.Text, out int t);

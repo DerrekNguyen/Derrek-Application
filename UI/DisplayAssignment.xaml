@@ -8,10 +8,10 @@
         Title="Display Assignment" Height="450" Width="800"
         Background="#272537">
    <Grid>
-      <Rectangle Stroke="Black" Margin="0,0,629,335" Fill="White"/>
-      <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,99,629,0"/>
-      <Button Content="Button" HorizontalAlignment="Left" Margin="19,31,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.325,0.106" Height="37" Width="51"/>
-      <Label Content="Label" HorizontalAlignment="Left" Height="37" Margin="86,31,0,0" VerticalAlignment="Top" Width="68"/>
+      <Rectangle x:Name="createAssignmentBox" Stroke="Black" Margin="0,0,629,335" Fill="White"/>
+      <ListBox x:Name="assignmentListBox" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,99,629,0"/>
+      <Button x:Name="createAssignmentButton" Content="Button" HorizontalAlignment="Left" Margin="19,31,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.325,0.106" Height="37" Width="51"/>
+      <Label x:Name="createAssignmentLabel" Content="Label" HorizontalAlignment="Left" Height="37" Margin="86,31,0,0" VerticalAlignment="Top" Width="68"/>
 
    </Grid>
 </Window>
