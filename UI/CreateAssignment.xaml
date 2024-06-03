@@ -80,7 +80,7 @@
          VerticalAlignment="Center" 
          Foreground="White" 
          Background="{x:Null}" 
-         FontSize="20" Height="37" Width="92" Grid.Row="0"/>
+         FontSize="20" Height="37" Width="92" Grid.Row="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
 
             <Grid Grid.Row="1">
                <Grid.ColumnDefinitions>
@@ -91,7 +91,7 @@
                   Content="Days from now" 
                   Foreground="White" 
                   Background="{x:Null}" 
-                  FontSize="20" Width="149" Height="38" DockPanel.Dock="Right" MinWidth="149" Grid.Column="1" Margin="10,0,66,0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                  FontSize="20" Width="149" Height="38" DockPanel.Dock="Right" MinWidth="149" Grid.Column="1" Margin="10,0,66,0" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
 
                <TextBox x:Name="dateAmountTextBox" 
                      TextWrapping="Wrap"
@@ -104,14 +104,13 @@
             <Label x:Name="orLabel" 
          Content="- or -" 
          HorizontalAlignment="Center"
-         VerticalAlignment="Top" 
+         VerticalAlignment="Center" 
          Foreground="White" 
          Background="{x:Null}" 
-         FontSize="20" FontStyle="Italic" MinWidth="56" MinHeight="36" Margin="0,16,0,0" Grid.Row="2"/>
+         FontSize="20" FontStyle="Italic" MinWidth="56" MinHeight="36" Grid.Row="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
 
             <DatePicker x:Name="deadlineDatePicker" 
                   HorizontalAlignment="Center" Grid.Row="3" 
-                  VerticalAlignment="Center" 
                   Height="31" 
                   Width="138" FontSize="18" FontStyle="Italic" SelectedDateFormat="Short" Text="" RenderTransformOrigin="0.642,-3.673" DockPanel.Dock="Top"/>
 

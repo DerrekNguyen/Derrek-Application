@@ -20,9 +20,7 @@ namespace Derrek_Application.Data
             var p = new DynamicParameters();
             p.Add("@title", dataObj.Title);
             p.Add("@description", dataObj.Description);
-            p.Add("@note", dataObj.Note);
             p.Add("@duration", dataObj.Duration);
-            p.Add("@doneCriteria", dataObj.DoneCriteria);
             p.Add("@done", dataObj.Done);
             p.Add("@deadline", dataObj.Deadline);
             p.Add("@assignmentId", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);

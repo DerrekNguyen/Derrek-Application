@@ -54,6 +54,8 @@ namespace Derrek_Application.UI
             descriptionTextBox.Text = "";
             deadlineDatePicker.Text = DateTime.Now.ToString();
             dateAmountTextBox.Text = "";
+
+            this.Close();
          }
          else MessageBox.Show("Invalid value detected. Please try again");
       }

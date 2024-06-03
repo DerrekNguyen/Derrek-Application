@@ -59,5 +59,11 @@ namespace Derrek_Application.UI
          InitializeComponent();
          PrepareData();
       }
+
+      private void addAssignmentButton_Click(object sender, RoutedEventArgs e)
+      {
+         CreateAssignment AssignmentForm = new CreateAssignment();
+         AssignmentForm.Show();
+      }
    }
 }
