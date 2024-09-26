@@ -3,13 +3,32 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Derrek_Application"
              StartupUri="UI/MainWindow.xaml"
-             xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml">
-    <Application.Resources>
+             xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+             xmlns:viewModel="clr-namespace:Derrek_Application.MVVM.ViewModel"
+             xmlns:view="clr-namespace:Derrek_Application.MVVM.View">
+   <Application.Resources>
       <ResourceDictionary>
+         
+         <DataTemplate DataType="{x:Type viewModel:AddViewModel}">
+            <view:AddView/>
+         </DataTemplate>
+
+         <DataTemplate DataType="{x:Type viewModel:DisplayViewModel}">
+            <view:DisplayView/>
+         </DataTemplate>
+
+         <FontFamily x:Key="Montserrat">pack://application:,,,/Fonts/#Montserrat</FontFamily>
+         <FontFamily x:Key="MontserratBold">pack://application:,,,/Fonts/#Montserrat</FontFamily>
+
          <ResourceDictionary.MergedDictionaries>
             <ResourceDictionary Source="Theme/MinimizeButtonTheme.xaml"/>
             <ResourceDictionary Source="Theme/CloseButtonTheme.xaml"/>
+            <ResourceDictionary Source="Theme/AddAssignmentButtonTheme.xaml"/>
+            <ResourceDictionary Source="Theme/ShowAssignmentButtonTheme.xaml"/>
+            <ResourceDictionary Source="Theme/SelectDayButtonTheme.xaml"/>
+            <ResourceDictionary Source="Theme/DiscriptionTextBlockTheme.xaml"/>
          </ResourceDictionary.MergedDictionaries>
+
       </ResourceDictionary>
    </Application.Resources>
 </Application>

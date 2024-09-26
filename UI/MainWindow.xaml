@@ -4,6 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Derrek_Application.UI"
+        xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+        xmlns:viewModel="clr-namespace:Derrek_Application.MVVM.ViewModel"
         mc:Ignorable="d"
         Title="MainWindow" Height="800" Width="1200"
         WindowStyle="None"
@@ -11,45 +13,92 @@
         Background="Transparent"
         AllowsTransparency="True">
 
+   <Window.DataContext>
+      <viewModel:MainViewModel/>
+   </Window.DataContext>
+   
    <Border Background="#010b1a"
            CornerRadius="15">
       <Grid>
          <Grid.RowDefinitions>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="60"/>
             <RowDefinition/>
          </Grid.RowDefinitions>
 
-         <Grid Grid.Row="0">
-            <Grid.ColumnDefinitions>
-               <ColumnDefinition Width="35"/>
-               <ColumnDefinition/>
-               <ColumnDefinition Width="50"/>
-               <ColumnDefinition Width="50"/>
-            </Grid.ColumnDefinitions>
+         <Border CornerRadius="15,15,0,0">
+            <Grid Grid.Row="0"
+               MouseDown="Grid_MouseDown"
+               Background="Transparent">
 
-            <Image Grid.Column="0"
+               <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="35"/>
+                  <ColumnDefinition/>
+                  <ColumnDefinition Width="50"/>
+                  <ColumnDefinition Width="50"/>
+               </Grid.ColumnDefinitions>
+
+               <Image Grid.Column="0"
                    Source="/Images/MainIcon.png"
                    Margin="15,0,0,0"/>
 
-            <TextBlock Grid.Column="1"
+               <TextBlock Grid.Column="1"
                        Text="Derrek's Application"
-                       FontSize="14"
-                       FontFamily="/Fonts/#Montserrat"
+                       FontSize="18"
+                       FontFamily="{StaticResource Montserrat}"
                        VerticalAlignment="Center"
                        Foreground="LightGray"
                        Margin="10,0,0,0"/>
 
-            <RadioButton x:Name="MinimizeButton"
+               <RadioButton x:Name="MinimizeButton"
                          Content="-"
                          Grid.Column="2"
-                         Style="{StaticResource MinimizeButtonTheme}"/>
+                         Style="{StaticResource MinimizeButtonTheme}"
+                         Click="MinimizeButton_Click"/>
 
-            <RadioButton x:Name="CloseButton"
+               <RadioButton x:Name="CloseButton"
                          Content="x"
                          Grid.Column="3"
-                         Style="{StaticResource CloseButtonTheme}"/>
-         </Grid>
-      </Grid>
+                         Style="{StaticResource CloseButtonTheme}"
+                         Click="CloseButton_Click"/>
 
+            </Grid>
+         </Border>
+
+         <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+               <ColumnDefinition Width="80"/>
+               <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Border CornerRadius="0,15,0,0"
+                    Background="#010b1a"
+                    Margin="0,0,0,0">
+
+               <StackPanel Grid.Column="0">
+
+                  <RadioButton Height="80"
+                               Style="{StaticResource AddAssignmentButtonTheme}"
+                               Command="{Binding AddViewCommand}">
+
+                  </RadioButton>
+
+                  <RadioButton Height="80"
+                               Style="{StaticResource ShowAssignmentButtonTheme}"
+                               Command="{Binding DisplayViewCommand}">
+
+                  </RadioButton>
+
+               </StackPanel>
+            </Border>
+
+            <ContentControl Grid.Column="1"
+                            Margin="25,0,10,0"
+                            Content="{Binding CurrentView}">
+               
+            </ContentControl>
+            
+         </Grid>
+
+      </Grid>
    </Border>
 </Window>

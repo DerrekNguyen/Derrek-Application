@@ -1,0 +1,11 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+   <Style BasedOn="{StaticResource {x:Type TextBlock}}"
+          TargetType="{x:Type TextBlock}"
+          x:Key="DiscriptionTextBlockTheme">
+      <Style.Setters>
+         <Setter Property="Background" Value="#FF6936AA"></Setter>
+         <Setter Property="Text" Value="{TemplateBinding TextBlock.Text}"></Setter>
+      </Style.Setters>
+   </Style>
+</ResourceDictionary>
