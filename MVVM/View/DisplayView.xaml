@@ -15,41 +15,10 @@
          <ListView Name="lvItemSource"
                    Background="Transparent"
                    Foreground="White"
-                   BorderThickness="0">
-            <!--<ListView.ItemTemplate>
-               <DataTemplate>
-                  <WrapPanel>
-                     <Label Content="Name: " Foreground="White"/>
-                     <Label Content="{Binding Name}" FontWeight="Bold" Foreground="White"/>
-                     <Label Content=", " Foreground="White"/>
-                     <Label Content="Description: " Foreground="White"/>
-                     <Label Content="{Binding Description}" FontWeight="Bold" Foreground="White"/>
-                     <Label Content=" (" Foreground="White"/>
-                     <Label Content="{Binding Schedule}" Foreground="White"/>
-                     <Label Content=")" Foreground="White"/>
-                  </WrapPanel>
-               </DataTemplate>
-            </ListView.ItemTemplate>-->
+                   BorderThickness="0"
+                   FontFamily="{StaticResource Montserrat}"
+                   FontSize="22">
          </ListView>
-      </StackPanel>
-      <StackPanel Margin="0,0,0,75"
-                  Orientation="Horizontal" 
-                  VerticalAlignment="Bottom"
-                  Grid.Row="2">
-         <RadioButton Style="{StaticResource SelectDayButtonTheme}"
-                      Content="Mon"/>
-         <RadioButton Style="{StaticResource SelectDayButtonTheme}"
-                      Content="Tue"/>
-         <RadioButton Style="{StaticResource SelectDayButtonTheme}"
-                      Content="Wed"/>
-         <RadioButton Style="{StaticResource SelectDayButtonTheme}"
-                      Content="Thu"/>
-         <RadioButton Style="{StaticResource SelectDayButtonTheme}"
-                      Content="Fri"/>
-         <RadioButton Style="{StaticResource SelectDayButtonTheme}"
-                      Content="Sat"/>
-         <RadioButton Style="{StaticResource SelectDayButtonTheme}"
-                      Content="Sun"/>
       </StackPanel>
    </Grid>
 
