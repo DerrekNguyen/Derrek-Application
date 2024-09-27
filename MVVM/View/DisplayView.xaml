@@ -6,16 +6,33 @@
              xmlns:local="clr-namespace:Derrek_Application.MVVM.View"
              mc:Ignorable="d" 
              d:DesignHeight="740" d:DesignWidth="1090">
-
    <Grid>
       <Grid.RowDefinitions>
          <RowDefinition/>
-         <RowDefinition/>
+         <RowDefinition Height="200"/>
       </Grid.RowDefinitions>
       <StackPanel VerticalAlignment="Stretch">
-         
+         <ListView Name="lvItemSource"
+                   Background="Transparent"
+                   Foreground="White"
+                   BorderThickness="0">
+            <!--<ListView.ItemTemplate>
+               <DataTemplate>
+                  <WrapPanel>
+                     <Label Content="Name: " Foreground="White"/>
+                     <Label Content="{Binding Name}" FontWeight="Bold" Foreground="White"/>
+                     <Label Content=", " Foreground="White"/>
+                     <Label Content="Description: " Foreground="White"/>
+                     <Label Content="{Binding Description}" FontWeight="Bold" Foreground="White"/>
+                     <Label Content=" (" Foreground="White"/>
+                     <Label Content="{Binding Schedule}" Foreground="White"/>
+                     <Label Content=")" Foreground="White"/>
+                  </WrapPanel>
+               </DataTemplate>
+            </ListView.ItemTemplate>-->
+         </ListView>
       </StackPanel>
-      <StackPanel Margin="20,0,0,75"
+      <StackPanel Margin="0,0,0,75"
                   Orientation="Horizontal" 
                   VerticalAlignment="Bottom"
                   Grid.Row="2">
