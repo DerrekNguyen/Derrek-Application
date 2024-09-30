@@ -28,7 +28,7 @@
 
          <TextBox Height="250"
                   Margin="0,20,0,0"
-                  Text="Placeholder text"/>
+                  Text="Description"/>
 
       </StackPanel>
       <StackPanel Margin="0,0,0,75"

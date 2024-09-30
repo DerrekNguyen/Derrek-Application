@@ -20,9 +20,9 @@ namespace Derrek_Application.Data
             var p = new DynamicParameters();
             p.Add("@title", dataObj.Title);
             p.Add("@description", dataObj.Description);
-            p.Add("@duration", dataObj.Duration);
             p.Add("@done", dataObj.Done);
-            p.Add("@deadline", dataObj.Deadline);
+            // TODO: Implement a seperate table to store days
+            p.Add("@deadline", dataObj.Schedule);
             p.Add("@assignmentId", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
 
             connection.Execute("dbo.spAssignment_Store", p, commandType: CommandType.StoredProcedure);

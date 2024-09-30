@@ -13,24 +13,20 @@ namespace Derrek_Application.Classes
       public int AssignmentID = 0;
       public string Title { get; set; }
       public string Description { get; set; }
-      public TimeSpan Duration { get; set; }
       public bool Done { get; set; }
-      public DateTime Deadline { get; set; }
-      public TimeSpan Break { get; set; } = new TimeSpan(0, 5, 0);
-      private TimeSpan DefaultDuration { get; set; } = new TimeSpan(0, 25, 0);
+      public List<DayOfWeek> Schedule { get; set; }
 
       // Methods
       public Assignment(string title,
                         string description,
                         bool done,
-                        DateTime deadline)
+                        List<DayOfWeek> schedule)
       {
          Title = title;
          Description = description;
          Done = done;
-         Duration = DefaultDuration;
-         Deadline = deadline;
+         Schedule = schedule;
       }
-      public Assignment() : this("", "", false, DateTime.Now) { }
+      public Assignment() : this("", "", false, new List<DayOfWeek>()) { }
    }
 }
