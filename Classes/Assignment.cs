@@ -28,5 +28,15 @@ namespace Derrek_Application.Classes
          Schedule = schedule;
       }
       public Assignment() : this("", "", false, new List<DayOfWeek>()) { }
+
+      public string GetSchedule()
+      {
+         string result = string.Empty;
+         foreach (DayOfWeek day in Schedule)
+         {
+            result += day.ToString() + " ";
+         }
+         return result;
+      }
    }
 }

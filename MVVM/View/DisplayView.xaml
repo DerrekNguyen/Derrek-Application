@@ -12,12 +12,44 @@
          <RowDefinition Height="200"/>
       </Grid.RowDefinitions>
       <StackPanel VerticalAlignment="Stretch">
-         <ListView Name="lvItemSource"
-                   Background="Transparent"
+         <ListView Background="Transparent"
                    Foreground="White"
                    BorderThickness="0"
                    FontFamily="{StaticResource Montserrat}"
-                   FontSize="22">
+                   FontSize="22"
+                   ItemsSource="{Binding Assignments}">
+            <ListView.ItemContainerStyle>
+               <Style TargetType="ListViewItem">
+                  <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+               </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.View>
+               <GridView>
+                  <GridViewColumn Header="Title">
+                     <GridViewColumn.CellTemplate>
+                        <DataTemplate>
+                           <TextBlock HorizontalAlignment="Center" Text="{Binding Title}" />
+                        </DataTemplate>
+                     </GridViewColumn.CellTemplate>
+                  </GridViewColumn>
+
+                  <GridViewColumn Header="Description">
+                     <GridViewColumn.CellTemplate>
+                        <DataTemplate>
+                           <TextBlock Padding="0,0,20,0" Text="{Binding Description}" />
+                        </DataTemplate>
+                     </GridViewColumn.CellTemplate>
+                  </GridViewColumn>
+
+                  <GridViewColumn Header="Schedule">
+                     <GridViewColumn.CellTemplate>
+                        <DataTemplate>
+                           <TextBlock Padding="0,0,20,0" Text="{Binding Schedule}" />
+                        </DataTemplate>
+                     </GridViewColumn.CellTemplate>
+                  </GridViewColumn>
+               </GridView>
+            </ListView.View>
          </ListView>
       </StackPanel>
    </Grid>

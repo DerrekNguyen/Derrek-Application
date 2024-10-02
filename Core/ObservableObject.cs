@@ -8,10 +8,9 @@ using System.Threading.Tasks;
 
 namespace Derrek_Application.Core
 {
-   class ObservableObject : INotifyPropertyChanged
+   public class ObservableObject : INotifyPropertyChanged
    {
       public event PropertyChangedEventHandler? PropertyChanged;
-
       protected void OnPropertyChanged([CallerMemberName] string? name = null)
       {
          PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));

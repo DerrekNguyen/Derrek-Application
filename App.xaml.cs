@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Derrek_Application.MVVM.ViewModel;
+using Derrek_Application.UI;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -15,5 +17,15 @@ namespace Derrek_Application
    /// </summary>
    public partial class App : Application
    {
+      protected override void OnStartup(StartupEventArgs e)
+      {
+         MainWindow = new MainWindow()
+         {
+            DataContext = new MainViewModel()
+         };
+         MainWindow.Show();
+
+         base.OnStartup(e);
+      }
    }
 }
