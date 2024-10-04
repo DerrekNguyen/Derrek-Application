@@ -3,7 +3,7 @@ A WIP application to keep track of day-to-day tasks.
 
 UI written with WPF, backend handled by C# with local SQL server support to store data.
 
-Screenshots of the app (Updated 09/26/24):
+Screenshots of the app (Updated 10/03/24):
 
 ![image](https://github.com/user-attachments/assets/3ff03ff7-635c-4053-877f-bfa1b409217f)
 
