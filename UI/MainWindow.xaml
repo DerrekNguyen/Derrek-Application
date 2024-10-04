@@ -74,7 +74,7 @@
                     Background="#010b1a"
                     Margin="0,0,0,0">
 
-               <StackPanel Grid.Column="0">
+               <StackPanel Grid.Column="0"> 
 
                   <RadioButton Height="80"
                                Style="{StaticResource AddAssignmentButtonTheme}"

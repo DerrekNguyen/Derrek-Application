@@ -23,32 +23,55 @@
             </Style>
          </StackPanel.Resources>
 
-         <TextBlock Text="Name:"
-                 Margin="0,80,0,0"/>
+         <Grid Margin="0,20,0,0">
+            <Grid.ColumnDefinitions>
+               <ColumnDefinition Width="Auto"/>
+               <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Name:"
+                       Margin="0,0,0,0"
+                       Grid.Column="0"/>
+            <TextBox Height="Auto"
+                     Margin="20,0,0,0"
+                     Grid.Column="1"/>
+         </Grid>
+         
+         <Grid Margin="0,30,0,0">
+            <Grid.RowDefinitions>
+               <RowDefinition/>
+               <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Description:"
+                       Grid.Column="0"/>
+            <TextBox Height="250"
+                     Margin="0,10,0,0"
+                     Grid.Row="1"/>
+         </Grid>
 
-         <TextBox Height="250"
-                  Margin="0,20,0,0"
-                  Text="Description"/>
 
-      </StackPanel>
-      <StackPanel Margin="0,0,0,75"
-                  Orientation="Horizontal" 
-                  VerticalAlignment="Bottom">
-         <RadioButton Style="{StaticResource SelectDayButtonTheme}"
+         <StackPanel Margin="0,50,0,0"
+                  Orientation="Horizontal">
+            <RadioButton Style="{StaticResource SelectDayButtonTheme}"
                       Content="Mon"/>
-         <RadioButton Style="{StaticResource SelectDayButtonTheme}"
+            <RadioButton Style="{StaticResource SelectDayButtonTheme}"
                       Content="Tue"/>
-         <RadioButton Style="{StaticResource SelectDayButtonTheme}"
+            <RadioButton Style="{StaticResource SelectDayButtonTheme}"
                       Content="Wed"/>
-         <RadioButton Style="{StaticResource SelectDayButtonTheme}"
+            <RadioButton Style="{StaticResource SelectDayButtonTheme}"
                       Content="Thu"/>
-         <RadioButton Style="{StaticResource SelectDayButtonTheme}"
+            <RadioButton Style="{StaticResource SelectDayButtonTheme}"
                       Content="Fri"/>
-         <RadioButton Style="{StaticResource SelectDayButtonTheme}"
+            <RadioButton Style="{StaticResource SelectDayButtonTheme}"
                       Content="Sat"/>
-         <RadioButton Style="{StaticResource SelectDayButtonTheme}"
+            <RadioButton Style="{StaticResource SelectDayButtonTheme}"
                       Content="Sun"/>
+         </StackPanel>
+         
+      <RadioButton Style="{StaticResource SubmitButtonTheme}"
+                   Content="Add"
+                   Margin="0,45,0,0"/>
       </StackPanel>
+
    </Grid>
 
 </UserControl>

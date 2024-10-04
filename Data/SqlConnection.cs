@@ -21,6 +21,7 @@ namespace Derrek_Application.Data
             p.Add("@title", dataObj.Title);
             p.Add("@description", dataObj.Description);
             p.Add("@done", dataObj.Done);
+
             // TODO: Implement a seperate table to store days
             p.Add("@deadline", dataObj.Schedule);
             p.Add("@assignmentId", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
