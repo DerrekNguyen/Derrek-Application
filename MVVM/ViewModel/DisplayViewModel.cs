@@ -19,15 +19,18 @@ namespace Derrek_Application.MVVM.ViewModel
       {
          _assignments = new ObservableCollection<AssignmentViewModel>();
 
-         List<DayOfWeek> days = new()
-         {
-            DayOfWeek.Monday, DayOfWeek.Tuesday, DayOfWeek.Friday
-         };
-
          foreach (Assignment a in assignmentList.GetAssignments())
          {
             _assignments.Add(new AssignmentViewModel(a));
          }
       }
+      public void RefreshConfigurations(AssignmentListViewModel assignmentList) {
+         _assignments.Clear();
+         foreach (Assignment a in assignmentList.GetAssignments())
+         {
+            _assignments.Add(new AssignmentViewModel(a));
+         }
+      }
+
    }
 }

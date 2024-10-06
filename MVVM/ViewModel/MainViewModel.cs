@@ -39,7 +39,7 @@ namespace Derrek_Application.MVVM.ViewModel
          _assignmentList.AddAssignment(new Assignment("Do Laundry", "Wash and dry clothes", false, days));
          _assignmentList.AddAssignment(new Assignment("Do Homework", "Finish all homework for the day", false, days));
 
-         AddVM = new AddViewModel();
+         AddVM = new AddViewModel(_assignmentList, this);
          DisplayVM = new DisplayViewModel(_assignmentList);
 
          CurrentView = AddVM;
