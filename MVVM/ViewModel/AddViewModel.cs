@@ -9,6 +9,15 @@ namespace Derrek_Application.MVVM.ViewModel
 {
    class AddViewModel : ObservableObject
    {
+      public RelayCommand SubmitAssignmentCommand { get; set; }
+
+      public AddViewModel()
+      {
+         SubmitAssignmentCommand = new RelayCommand(o =>
+         {
+
+         });
+      }
    }
 }
 

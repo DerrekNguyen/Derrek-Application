@@ -1,11 +1,10 @@
-﻿using Derrek_Application.Classes;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Derrek_Application.Classes
+namespace Derrek_Application.MVVM.Model
 {
    public class Assignment
    {
@@ -37,6 +36,21 @@ namespace Derrek_Application.Classes
             result += day.ToString() + " ";
          }
          return result;
+      }
+
+      private bool Equals(Assignment other)
+      {
+         if (other == null) return false;
+         //TODO: delete this when SQL is implemented for retrieving Assignment with ID.
+         return true;
+         //return (AssignmentID.Equals(other.AssignmentID));
+      }
+
+      public bool Equals(object obj)
+      {
+         if (obj == null) return false;
+         if (obj is not Assignment objAsAssignment) return false;
+         return Equals(objAsAssignment);
       }
    }
 }

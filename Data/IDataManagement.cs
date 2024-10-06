@@ -1,4 +1,4 @@
-﻿using Derrek_Application.Classes;
+﻿using Derrek_Application.MVVM.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;

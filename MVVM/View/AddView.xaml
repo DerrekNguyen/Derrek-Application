@@ -33,7 +33,8 @@
                        Grid.Column="0"/>
             <TextBox Height="Auto"
                      Margin="20,0,0,0"
-                     Grid.Column="1"/>
+                     Grid.Column="1"
+                     x:Name="nameTextBox"/>
          </Grid>
          
          <Grid Margin="0,30,0,0">
@@ -45,7 +46,8 @@
                        Grid.Column="0"/>
             <TextBox Height="250"
                      Margin="0,10,0,0"
-                     Grid.Row="1"/>
+                     Grid.Row="1"
+                     x:Name="descriptionTextBox"/>
          </Grid>
 
 

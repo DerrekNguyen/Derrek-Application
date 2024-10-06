@@ -1,5 +1,5 @@
 ﻿using Dapper;
-using Derrek_Application.Classes;
+using Derrek_Application.MVVM.Model;
 using System;
 using System.Configuration;
 using System.Collections.Generic;
