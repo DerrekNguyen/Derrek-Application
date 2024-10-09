@@ -37,7 +37,7 @@
                      Name="nameTextBox"
                      Text="{Binding Name}"/>
          </Grid>
-         
+
          <Grid Margin="0,30,0,0">
             <Grid.RowDefinitions>
                <RowDefinition/>
@@ -50,30 +50,44 @@
                      Grid.Row="1"
                      Name="descriptionTextBox"
                      Text="{Binding Description}"/>
-         </Grid> 
+         </Grid>
 
 
          <StackPanel Margin="0,50,0,0"
                   Orientation="Horizontal">
-            <RadioButton Style="{StaticResource SelectDayButtonTheme}"
-                      Content="Mon"/>
-            <RadioButton Style="{StaticResource SelectDayButtonTheme}"
-                      Content="Tue"/>
-            <RadioButton Style="{StaticResource SelectDayButtonTheme}"
-                      Content="Wed"/>
-            <RadioButton Style="{StaticResource SelectDayButtonTheme}"
-                      Content="Thu"/>
-            <RadioButton Style="{StaticResource SelectDayButtonTheme}"
-                      Content="Fri"/>
-            <RadioButton Style="{StaticResource SelectDayButtonTheme}"
-                      Content="Sat"/>
-            <RadioButton Style="{StaticResource SelectDayButtonTheme}"
-                      Content="Sun"/>
+            <RadioButton Content="Mon"
+                         Name="MondayButton"
+                         Style="{Binding ButtonStyle}"
+                         Command="{Binding DayButtonCommand}"/>
+            <RadioButton Content="Tue"
+                         Name="TuesdayButton"
+                         Style="{Binding ButtonStyle}"
+                         Command="{Binding DayButtonCommand}"/>
+            <RadioButton Content="Wed"
+                         Name="WednesdayButton"
+                         Style="{Binding ButtonStyle}"
+                         Command="{Binding DayButtonCommand}"/>
+            <RadioButton Content="Thu"
+                         Name="ThursdayButton"
+                          Style="{Binding ButtonStyle2}"
+                         Command="{Binding DayButtonCommand}"/>
+            <RadioButton Content="Fri"
+                         Name="FridayButton"
+                         Style="{Binding ButtonStyle2}"
+                         Command="{Binding DayButtonCommand}"/>
+            <RadioButton Content="Sat"
+                         Name="SaturdayButton"
+                         Style="{Binding ButtonStyle2}"
+                         Command="{Binding DayButtonCommand}"/>
+            <RadioButton Content="Sun"
+                         Name="SundayButton"
+                         Style="{Binding ButtonStyle2}"
+                         Command="{Binding DayButtonCommand}"/>
          </StackPanel>
-         
-      <RadioButton Style="{StaticResource SubmitButtonTheme}"
+
+         <RadioButton Style="{StaticResource SubmitButtonTheme}"
                    Content="Add"
-                   Margin="0,45,0,0"
+                   Margin="0,45,70,0"
                    Command="{Binding SubmitAssignmentCommand}"/>
       </StackPanel>
 

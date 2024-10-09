@@ -24,7 +24,8 @@
             <ResourceDictionary Source="Theme/CloseButtonTheme.xaml"/>
             <ResourceDictionary Source="Theme/AddAssignmentButtonTheme.xaml"/>
             <ResourceDictionary Source="Theme/ShowAssignmentButtonTheme.xaml"/>
-            <ResourceDictionary Source="Theme/SelectDayButtonTheme.xaml"/>
+            <ResourceDictionary Source="Theme/UnselectedDayButtonTheme.xaml"/>
+            <ResourceDictionary Source="Theme/SelectedDayButtonTheme.xaml"/>
             <ResourceDictionary Source="Theme/DiscriptionTextBlockTheme.xaml"/>
             <ResourceDictionary Source="Theme/SubmitButtonTheme.xaml"/>
          </ResourceDictionary.MergedDictionaries>
