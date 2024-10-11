@@ -1,7 +1,7 @@
 # Derrek's Application
 Application to keep track of day-to-day tasks. Now fully functional
 
-UI written with WPF using the MVVM model, backend handled by C# with local SQL server support to store data.
+UI was written with WPF using the MVVM model, and the backend was handled by C# with local Microsoft SQL Server support to store data.
 
 Screenshots of the app (Updated 10/03/24):
 
