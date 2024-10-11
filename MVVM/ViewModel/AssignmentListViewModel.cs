@@ -15,6 +15,7 @@ namespace Derrek_Application.MVVM.ViewModel
       public string GetName() { return _assignmentList.Name; }
       public List<Assignment> GetAssignments() { return _assignmentList._assignments; }
       public void AddAssignment(Assignment assignment) { _assignmentList.AddAssignment(assignment); }
+      public void ReloadAssignment(List<Assignment> assignments) {  _assignmentList._assignments = assignments; }
       
       public AssignmentListViewModel(AssignmentList assignmentList)
       {

@@ -16,7 +16,7 @@ namespace Derrek_Application.MVVM.ViewModel
       public string Title => _assignment.Title;
       public string Description => _assignment.Description;
       public bool Done => _assignment.Done;
-      public string Schedule => _assignment.GetSchedule();
+      public string Schedule => _assignment.GetScheduleDisplay();
 
       public AssignmentViewModel(Assignment assignment)
       {

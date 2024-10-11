@@ -1,4 +1,5 @@
 ﻿using Derrek_Application.Core;
+using Derrek_Application.Data;
 using Derrek_Application.MVVM.Model;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ namespace Derrek_Application.MVVM.ViewModel
    class MainViewModel : ObservableObject
    {
       //TODO: Implement getting Assignment list from SQL
-      private AssignmentListViewModel _assignmentList = new AssignmentListViewModel(new AssignmentList("Test Assignment List"));
+      private AssignmentListViewModel _assignmentList = new AssignmentListViewModel(new AssignmentList("Test Assignment List", GlobalConfig.sql.GetAllAssignment()));
 
       public RelayCommand AddViewCommand { get; set; }
       public RelayCommand DisplayViewCommand { get; set; }
@@ -31,13 +32,7 @@ namespace Derrek_Application.MVVM.ViewModel
 
       public MainViewModel()
       {
-         List<DayOfWeek> days = new List<DayOfWeek> {
-            DayOfWeek.Monday, DayOfWeek.Tuesday, DayOfWeek.Friday
-         };
-
-         _assignmentList.AddAssignment(new Assignment("Walk Dog", "Walk Butters around the block", false, days));
-         _assignmentList.AddAssignment(new Assignment("Do Laundry", "Wash and dry clothes", false, days));
-         _assignmentList.AddAssignment(new Assignment("Do Homework", "Finish all homework for the day", false, days));
+         string days = "Monday,Wednesday,Friday";
 
          AddVM = new AddViewModel(_assignmentList, this);
          DisplayVM = new DisplayViewModel(_assignmentList);

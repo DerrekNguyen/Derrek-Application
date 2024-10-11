@@ -15,6 +15,7 @@ using System.Linq.Expressions;
 using Wpf.Ui.Input;
 using System.DirectoryServices;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Derrek_Application.Data;
 
 namespace Derrek_Application.MVVM.ViewModel
 {
@@ -138,7 +139,23 @@ namespace Derrek_Application.MVVM.ViewModel
 
       private bool CheckValid()
       {
-         return Description != null && Name != null;
+         bool validDay = false;
+         foreach (var day in DaysSelected)
+         {
+            if (day.Value == true) validDay = true;
+         }
+
+         return Description != null && Name != null && validDay;
+      }
+
+      private string GetDay()
+      {
+         string result = "";
+         foreach (var day in DaysSelected)
+         {
+            if (day.Value == true) result += day.Key.Replace("Button","") + ",";
+         }
+         return result.Remove(result.Length - 1);
       }
 
       public AddViewModel(AssignmentListViewModel assignmentList, MainViewModel mainView)
@@ -148,17 +165,17 @@ namespace Derrek_Application.MVVM.ViewModel
          SubmitAssignmentCommand = new RelayCommand(o =>
          {
             //TODO: Implement day button in AddView
-            List<DayOfWeek> days = new() {
-               DayOfWeek.Monday, DayOfWeek.Tuesday, DayOfWeek.Friday
-            };
             if (CheckValid())
             {
-               assignmentList.AddAssignment(new Assignment(_name, _description, false, days));
+               string days = GetDay();
+               Assignment temp = new Assignment(_name, _description, false, days);
+               temp = GlobalConfig.sql.StoreAssignment(temp);
+               assignmentList.ReloadAssignment(GlobalConfig.sql.GetAllAssignment());
                Name = "";
                Description = "";
                mainView.DisplayVM.RefreshConfigurations(assignmentList);
             }
-            //TODO: Implement conflict controls (Either name or description is empty)
+            //TODO: Implement conflict controls (Either name or description is empty, or no days are selected)
             else throw new Exception();
          });
          DayButtonCommand = new RelayCommand(o =>

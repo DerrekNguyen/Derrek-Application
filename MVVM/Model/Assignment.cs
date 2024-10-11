@@ -26,6 +26,24 @@ namespace Derrek_Application.MVVM.Model
          Done = done;
          Schedule = schedule;
       }
+
+      public Assignment(string title,
+                  string description,
+                  bool done,
+                  string schedule)
+      {
+         Title = title;
+         Description = description;
+         Done = done;
+         Schedule = new List<DayOfWeek>();
+
+         List<string> days = schedule.Split(',').ToList();
+         foreach (string d in days)
+         {
+            Schedule.Add((DayOfWeek)Enum.Parse(typeof(DayOfWeek), d, true));
+         }
+      }
+
       public Assignment() : this("", "", false, new List<DayOfWeek>()) { }
 
       public string GetSchedule()
@@ -33,9 +51,19 @@ namespace Derrek_Application.MVVM.Model
          string result = string.Empty;
          foreach (DayOfWeek day in Schedule)
          {
+            result += day.ToString() + ",";
+         }
+         return result.Remove(result.Length - 1);
+      }
+
+      public string GetScheduleDisplay()
+      {
+         string result = string.Empty;
+         foreach (DayOfWeek day in Schedule)
+         {
             result += day.ToString() + " ";
          }
-         return result;
+         return result.Trim();
       }
 
       private bool Equals(Assignment other)

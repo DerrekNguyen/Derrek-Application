@@ -18,9 +18,10 @@ namespace Derrek_Application.MVVM.Model
          else throw new Exception(); //TODO: Implement conflict controls.
       }
 
-      public AssignmentList(string name)
+      public AssignmentList(string name, List<Assignment> assignments = null)
       {
          Name = name;
+         _assignments = assignments;
       }
 
    }

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Win32.TaskScheduler;
+using System.Xml.XPath;
 
 namespace Derrek_Application.Data
 {
@@ -21,28 +22,33 @@ namespace Derrek_Application.Data
             p.Add("@title", dataObj.Title);
             p.Add("@description", dataObj.Description);
             p.Add("@done", dataObj.Done);
-
-            // TODO: Implement a seperate table to store days
-            p.Add("@deadline", dataObj.Schedule);
-            p.Add("@assignmentId", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
+            p.Add("@id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
 
             connection.Execute("dbo.spAssignment_Store", p, commandType: CommandType.StoredProcedure);
 
-            dataObj.AssignmentID = p.Get<int>("@assignmentId");
+            dataObj.AssignmentID = p.Get<int>("@id");
+
+            p = new DynamicParameters();
+            p.Add("@assignmentID", dataObj.AssignmentID);
+            p.Add("@schedule", dataObj.GetSchedule());
+
+            connection.Execute("dbo.spAssignment_StoreSchedule", p, commandType: CommandType.StoredProcedure);
 
             return dataObj;
          }
-         throw new NotImplementedException();
       }
       public List<Assignment> GetAllAssignment()
       {
-         List<Assignment> output;
          using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.ConnectionStr("DerrekApp")))
          {
-            output = connection.Query<Assignment>("dbo.spAssignment_GetAll").ToList();
-            return output;
+            List<Assignment> result = new List<Assignment>();
+            var output = connection.Query("dbo.spAssignment_GetAll").ToList();
+            foreach (var item in output)
+            {
+               result.Add(new Assignment(item.title, item.description, item.done, item.schedule));
+            }
+            return result;
          }
-      throw new NotImplementedException();
       }
    }
 }
