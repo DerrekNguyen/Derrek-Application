@@ -55,34 +55,41 @@
 
          <StackPanel Margin="0,50,0,0"
                   Orientation="Horizontal">
-            <RadioButton Content="Mon"
+            <CheckBox Content="Mon"
                          Name="MondayButton"
-                         Style="{Binding ButtonStyle}"
-                         Command="{Binding DayButtonCommand}"/>
-            <RadioButton Content="Tue"
+                         Style="{Binding MondayButton}"
+                         Command="{Binding DayButtonCommand}"
+                         CommandParameter="{Binding ElementName=MondayButton}"/>
+            <CheckBox Content="Tue"
                          Name="TuesdayButton"
-                         Style="{Binding ButtonStyle}"
-                         Command="{Binding DayButtonCommand}"/>
-            <RadioButton Content="Wed"
+                         Style="{Binding TuesdayButton}"
+                         Command="{Binding DayButtonCommand}"
+                         CommandParameter="{Binding ElementName=TuesdayButton}"/>
+            <CheckBox Content="Wed"
                          Name="WednesdayButton"
-                         Style="{Binding ButtonStyle}"
-                         Command="{Binding DayButtonCommand}"/>
-            <RadioButton Content="Thu"
+                         Style="{Binding WednesdayButton}"
+                         Command="{Binding DayButtonCommand}"
+                         CommandParameter="{Binding ElementName=WednesdayButton}"/>
+            <CheckBox Content="Thu"
                          Name="ThursdayButton"
-                          Style="{Binding ButtonStyle2}"
-                         Command="{Binding DayButtonCommand}"/>
-            <RadioButton Content="Fri"
+                         Style="{Binding ThursdayButton}"
+                         Command="{Binding DayButtonCommand}"
+                         CommandParameter="{Binding ElementName=ThursdayButton}"/>
+            <CheckBox Content="Fri"
                          Name="FridayButton"
-                         Style="{Binding ButtonStyle2}"
-                         Command="{Binding DayButtonCommand}"/>
-            <RadioButton Content="Sat"
+                         Style="{Binding FridayButton}"
+                         Command="{Binding DayButtonCommand}"
+                         CommandParameter="{Binding ElementName=FridayButton}"/>
+            <CheckBox Content="Sat"
                          Name="SaturdayButton"
-                         Style="{Binding ButtonStyle2}"
-                         Command="{Binding DayButtonCommand}"/>
-            <RadioButton Content="Sun"
+                         Style="{Binding SaturdayButton}"
+                         Command="{Binding DayButtonCommand}"
+                         CommandParameter="{Binding ElementName=SaturdayButton}"/>
+            <CheckBox Content="Sun"
                          Name="SundayButton"
-                         Style="{Binding ButtonStyle2}"
-                         Command="{Binding DayButtonCommand}"/>
+                         Style="{Binding SundayButton}"
+                         Command="{Binding DayButtonCommand}"
+                         CommandParameter="{Binding ElementName=SundayButton}"/>
          </StackPanel>
 
          <RadioButton Style="{StaticResource SubmitButtonTheme}"

@@ -12,6 +12,9 @@ using System.Windows.Controls.Primitives;
 using System.Windows.Forms;
 using System.Windows.Markup;
 using System.Linq.Expressions;
+using Wpf.Ui.Input;
+using System.DirectoryServices;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Derrek_Application.MVVM.ViewModel
 {
@@ -21,9 +24,11 @@ namespace Derrek_Application.MVVM.ViewModel
       public RelayCommand SubmitAssignmentCommand { get; set; }
       public RelayCommand DayButtonCommand { get; set; }
 
-      private Style _unchecked = new Style(typeof(System.Windows.Controls.RadioButton), (Style)System.Windows.Application.Current.Resources["UnselectedDayButtonTheme"]);
-      private Style _checked = new Style(typeof(System.Windows.Controls.RadioButton), (Style)System.Windows.Application.Current.Resources["SelectedDayButtonTheme"]);
+      private Style _checked = new Style(typeof(System.Windows.Controls.CheckBox), (Style)System.Windows.Application.Current.Resources["SelectedDayButtonTheme"]);
+      private Style _unchecked = new Style(typeof(System.Windows.Controls.CheckBox), (Style)System.Windows.Application.Current.Resources["UnselectedDayButtonTheme"]);
+
       private Dictionary<string, bool> DaysSelected = new Dictionary<string, bool>();
+      private Dictionary<string, Style> DaysStyle = new Dictionary<string, Style>();
 
       private string _name;
       public string Name
@@ -53,26 +58,63 @@ namespace Derrek_Application.MVVM.ViewModel
          }
       }
 
-      private bool CheckValid()
-      {
-         return Description != null && Name != null;
-      }
-
-      private Style _buttonStyle;
-      public Style ButtonStyle
+      public Style MondayButton
       {
          get
          {
-            return _buttonStyle;
-         }
-         set
-         {
-            _buttonStyle = value;
-            OnPropertyChanged(nameof(ButtonStyle));
+            return DaysStyle["MondayButton"];
          }
       }
 
-      private void InitializeDaySelected()
+      public Style TuesdayButton
+      {
+         get
+         {
+            return DaysStyle["TuesdayButton"];
+         }
+      }
+
+      public Style WednesdayButton
+      {
+         get
+         {
+            return DaysStyle["WednesdayButton"];
+         }
+      }
+
+      public Style ThursdayButton
+      {
+         get
+         {
+            return DaysStyle["ThursdayButton"];
+         }
+      }
+
+      public Style FridayButton
+      {
+         get
+         {
+            return DaysStyle["FridayButton"];
+         }
+      }
+
+      public Style SaturdayButton
+      {
+         get
+         {
+            return DaysStyle["SaturdayButton"];
+         }
+      }
+
+      public Style SundayButton
+      {
+         get
+         {
+            return DaysStyle["SundayButton"];
+         }
+      }
+
+      private void InitializeDaysSelected()
       {
          DaysSelected.Add("MondayButton", false);
          DaysSelected.Add("TuesdayButton", false);
@@ -83,8 +125,26 @@ namespace Derrek_Application.MVVM.ViewModel
          DaysSelected.Add("SundayButton", false);
       }
 
+      private void InitializeDaysStyle()
+      {
+         DaysStyle.Add("MondayButton", _unchecked);
+         DaysStyle.Add("TuesdayButton", _unchecked);
+         DaysStyle.Add("WednesdayButton", _unchecked);
+         DaysStyle.Add("ThursdayButton", _unchecked);
+         DaysStyle.Add("FridayButton", _unchecked);
+         DaysStyle.Add("SaturdayButton", _unchecked);
+         DaysStyle.Add("SundayButton", _unchecked);
+      }
+
+      private bool CheckValid()
+      {
+         return Description != null && Name != null;
+      }
+
       public AddViewModel(AssignmentListViewModel assignmentList, MainViewModel mainView)
       {
+         InitializeDaysSelected();
+         InitializeDaysStyle();
          SubmitAssignmentCommand = new RelayCommand(o =>
          {
             //TODO: Implement day button in AddView
@@ -100,6 +160,24 @@ namespace Derrek_Application.MVVM.ViewModel
             }
             //TODO: Implement conflict controls (Either name or description is empty)
             else throw new Exception();
+         });
+         DayButtonCommand = new RelayCommand(o =>
+         {
+            if (o != null)
+            {
+               System.Windows.Controls.CheckBox sender = (System.Windows.Controls.CheckBox)o;
+               DaysSelected[sender.Name] = (bool)sender.IsChecked;
+               if (DaysSelected[sender.Name] == true)
+               {
+                  DaysStyle[sender.Name] = _checked;
+                  OnPropertyChanged(sender.Name);
+               }
+               else
+               {
+                  DaysStyle[sender.Name] = _unchecked;
+                  OnPropertyChanged(sender.Name);
+               }
+            }
          });
       }
    }
