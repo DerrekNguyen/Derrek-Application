@@ -7,4 +7,5 @@ Screenshots of the app (Updated 10/03/24):
 
 ![image](https://github.com/user-attachments/assets/3ff03ff7-635c-4053-877f-bfa1b409217f)
 
-![image](https://github.com/user-attachments/assets/2dcfbf36-ea0b-4b94-980e-619abf7dffc6)
+![image](https://github.com/user-attachments/assets/83d6e2ec-d4c5-4ab2-a60d-d2f99769dfc9)
+
