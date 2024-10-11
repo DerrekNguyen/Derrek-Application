@@ -1,5 +1,5 @@
 # Derrek's Application
-A WIP application to keep track of day-to-day tasks.
+Application to keep track of day-to-day tasks. Now fully functional
 
 UI written with WPF using the MVVM model, backend handled by C# with local SQL server support to store data.
 
